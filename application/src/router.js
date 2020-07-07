@@ -2,13 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // Middleware
-import HelloWorlMiddleware from '@/middleware/helloWorld'
 
 // Layouts
-import HelloWorldLayout from '@/layouts/hello-world'
+import OrdersLayout from '@/layouts/orders'
 
 // Views
-import OrdersIndex from '@/views/orders'
+import DriversIndex from '@/views/drivers'
 
 Vue.use(Router)
 
@@ -21,17 +20,16 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            component: HelloWorldLayout,
+            component: OrdersLayout,
             meta: {
                 middleware: [
-                    HelloWorlMiddleware
                 ]
             },
             children: [
                 {
                     path: '/',
-                    name: 'orders-index',
-                    component: OrdersIndex
+                    name: 'drivers-index',
+                    component: DriversIndex
                 }
             ]
         }

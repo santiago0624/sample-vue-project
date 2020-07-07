@@ -1,3 +1,14 @@
 module.exports = {
-  lintOnSave: false
+    "lintOnSave": false,
+    "transpileDependencies": [
+        "vuetify"
+    ],
+    devServer: {
+        proxy: {
+            "^/fixtures": {
+                target: "/fixtures",
+                changeOrigin: true
+            }
+        }
+    }
 }
