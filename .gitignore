@@ -1,0 +1,5 @@
+### Intellij ###
+.idea
+application/dist
+node_modules/
+
