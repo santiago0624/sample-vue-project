@@ -13,7 +13,11 @@ const Client = {
         }
         return Promise.all(promises)
             .then(() => {
-                return results;
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(results);
+                    }, 2000);
+                })
             });
     },
     getDriver(driverId) {

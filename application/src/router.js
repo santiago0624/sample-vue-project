@@ -4,7 +4,7 @@ import Router from 'vue-router'
 // Middleware
 
 // Layouts
-import OrdersLayout from '@/layouts/orders'
+import DriversLayout from '@/layouts/drivers'
 
 // Views
 import DriversIndex from '@/views/drivers'
@@ -20,7 +20,7 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            component: OrdersLayout,
+            component: DriversLayout,
             meta: {
                 middleware: [
                 ]

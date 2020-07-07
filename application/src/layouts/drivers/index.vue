@@ -9,7 +9,7 @@
 
 <script type="text/babel">
     export default {
-        name: 'layouts-orders-index',
+        name: 'layouts-drivers-index',
         watch: {},
         props: {},
         data() {

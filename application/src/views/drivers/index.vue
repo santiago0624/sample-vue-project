@@ -2,14 +2,7 @@
     <div class="component">
         <div class="container--fluid">
             <h1>Drivers</h1>
-            <div class="d-flex">
-                <div class="flex-grow-1">
-                    {{ result }}
-                </div>
-                <div>
-                    B
-                </div>
-            </div>
+            {{ result }}
         </div>
     </div>
 </template>
