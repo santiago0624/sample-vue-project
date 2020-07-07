@@ -1,22 +1,12 @@
 <template>
     <div class="component">
-        <h1>Orders</h1>
-
-
-        <div class="d-flex">
-            <div class="flex-grow-1">
-                A
-            </div>
-            <div>
-                B
-            </div>
-        </div>
+        <h1>Boilerplate Component</h1>
     </div>
 </template>
 
 <script type="text/babel">
     export default {
-        name: 'views-orders-index',
+        name: 'components-_boilerplate-index',
         watch: {},
         props: {},
         data() {

@@ -1,22 +1,13 @@
 <template>
     <div class="component">
-        <h1>Orders</h1>
-
-
-        <div class="d-flex">
-            <div class="flex-grow-1">
-                A
-            </div>
-            <div>
-                B
-            </div>
-        </div>
+        <h1>Boilerplate World Layout</h1>
+        <router-view></router-view>
     </div>
 </template>
 
 <script type="text/babel">
     export default {
-        name: 'views-orders-index',
+        name: 'layouts-boilerplate-index',
         watch: {},
         props: {},
         data() {

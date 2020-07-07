@@ -1,22 +1,12 @@
 <template>
-    <div class="component">
-        <h1>Orders</h1>
-
-
-        <div class="d-flex">
-            <div class="flex-grow-1">
-                A
-            </div>
-            <div>
-                B
-            </div>
-        </div>
+    <div id="app">
+        <router-view/>
     </div>
 </template>
 
 <script type="text/babel">
     export default {
-        name: 'views-orders-index',
+        name: 'app',
         watch: {},
         props: {},
         data() {
