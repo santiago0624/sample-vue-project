@@ -20,7 +20,7 @@ This application lists drivers and allows users to see details about a specific 
 4. Create a component which takes a driver object as a property and displays an avatar of the first and last name initials
 
 ### Hints
-Try to build components for repeatable items
+Try to build components for repeatable items, trying using template slots
 Look in to Vuex for state persistance
 
 ## How to get started
