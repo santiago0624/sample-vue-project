@@ -110,6 +110,7 @@ export default {
 .driver-info-row {
   display: flex;
   padding: 0;
+  min-width: 480px;
 }
 
 .driver-info-label {
@@ -119,6 +120,7 @@ export default {
   background-color: #32b2db;
   color: white;
   font-size: 18px;
+  min-width: 120px;
 }
 
 .driver-info-value {
