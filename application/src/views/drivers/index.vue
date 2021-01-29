@@ -5,9 +5,9 @@
 
       <div v-if="result">
         <div class="drivers-list-container">
-          <div v-for="device in result" :key="device.id" class="drivers-list-row">
+          <div v-for="driver in result" :key="driver.id" class="drivers-list-row" @click="navigateToDriverDetails(driver.id)">
             <i class="glyphicon glyphicon-user"></i>
-            <div class="driver-name">{{ device.first_name }}</div>
+            <div class="driver-name">{{ driver.first_name }}</div>
           </div>
         </div>
       </div>
@@ -39,6 +39,9 @@ export default {
         this.result = result;
       });
     },
+    navigateToDriverDetails(id) {
+      this.$router.push({ name: 'driver-details', params: { driverId: id }});
+    }
   },
   computed: {},
   created() {},
@@ -53,6 +56,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 .loader-container {
   display: flex;
   flex-direction: column;
