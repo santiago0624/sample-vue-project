@@ -10,6 +10,7 @@
                @click="navigateToDriverDetails(driver.id)">
             <i class="glyphicon glyphicon-user"></i>
             <div class="driver-name">{{ driver.first_name }}</div>
+            <app-avatar :driver="driver"></app-avatar>
           </div>
         </div>
       </div>
@@ -24,6 +25,7 @@
 
 <script type="text/babel">
 import DriversService from "@/services/drivers";
+import Avatar from "@/components/avatar"
 
 export default {
   name: "views-orders-index",
@@ -64,7 +66,9 @@ export default {
   },
   beforeDestroy() {},
   mixins: [],
-  components: {},
+  components: {
+    'app-avatar': Avatar
+  },
 };
 </script>
 
@@ -119,6 +123,7 @@ export default {
 
 .drivers-list-row {
   display: flex;
+  align-items: center;
   border: 1px solid #32b2db;
   border-bottom: none;
   padding: 15px 20px;
@@ -127,7 +132,7 @@ export default {
 
 .drivers-list-row:hover {
   cursor: pointer;
-  background-color: #32b2db;
+  background-color: #69c8e7;
   color: white;
 }
 
@@ -143,5 +148,6 @@ export default {
 .driver-name {
   margin-left: 15px;
   font-size: 15px;
+  width: 215px;
 }
 </style>
