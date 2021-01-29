@@ -12,10 +12,14 @@
           <div v-for="driver in resultQuery()" :key="driver.id" class="drivers-list-row" 
                @click="navigateToDriverDetails(driver.id)" id="driver.id">
             <i class="glyphicon glyphicon-user"></i>
-            <div class="driver-name" id="driverName">
+            <div class="driver-name" :style="changer" id="driverName">
               {{ driver.first_name }}
             </div>
             <app-avatar :driver="driver"></app-avatar>
+          </div>
+          <div class="select-color-section">
+             <label for="color">Select Font Color: </label>
+             <input id="color" class="color-picker" type="color" v-model="changer.color"/>
           </div>
         </div>
       </div>
@@ -40,6 +44,9 @@ export default {
     return {
       result: undefined,
       searchQuery: undefined,
+      changer:{
+        color: "#000000"
+      }
     };
   },
   methods: {
@@ -160,5 +167,17 @@ export default {
   margin-left: 15px;
   font-size: 15px;
   width: 215px;
+}
+
+.select-color-section {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding: 15px;
+  align-items: center;
+}
+
+.color-picker {
+  cursor: pointer;
 }
 </style>
