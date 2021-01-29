@@ -1,7 +1,14 @@
 <template>
   <div class="component">
     <div class="container--fluid">
-      <h1>Driver {{ this.$route.params.driverId }} Details</h1>
+      <div class="driver-details-header">
+        <div
+          class="bi bi-arrow-left-circle navigate-back-icon"
+          @click="navigateBack()"
+        ></div>
+        <h1>Driver {{ this.$route.params.driverId }} Details</h1>
+      </div>
+
       <div v-if="drivers">
         <div class="driver-info">
           <div
@@ -52,6 +59,9 @@ export default {
         { label: "Last Name", value: driverInfo[0].last_name },
         { label: "id", value: driverInfo[0].id },
       ];
+    },
+    navigateBack() {
+      this.$router.push({ name: "drivers-index" });
     },
   },
   computed: {},
@@ -112,7 +122,7 @@ export default {
   border: 1px solid #32b2db;
   border-bottom: 1px solid white;
   border-right: 1px solid white;
-  background-color:  #32b2db;
+  background-color: #32b2db;
   color: white;
   font-size: 18px;
 }
@@ -126,5 +136,22 @@ export default {
 
 .driver-info-row:last-child {
   border-bottom: 1px solid #32b2db;
+}
+
+.driver-details-header {
+  display: flex;
+}
+
+.navigate-back-icon {
+  font-size: 33px;
+  color: black;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.navigate-back-icon:hover {
+  cursor: pointer;
+  color: #32b2db;
 }
 </style>
