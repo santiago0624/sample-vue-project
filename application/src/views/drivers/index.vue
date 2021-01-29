@@ -5,7 +5,9 @@
 
       <div v-if="result">
         <div class="drivers-list-container">
-          <div v-for="driver in result" :key="driver.id" class="drivers-list-row" @click="navigateToDriverDetails(driver.id)">
+          <input class="form-control driver-search" type="search" v-model="searchQuery" placeholder="Search Driver"/>
+          <div v-for="driver in resultQuery()" :key="driver.id" class="drivers-list-row"
+               @click="navigateToDriverDetails(driver.id)">
             <i class="glyphicon glyphicon-user"></i>
             <div class="driver-name">{{ driver.first_name }}</div>
           </div>
@@ -16,7 +18,6 @@
         <div class="loader"></div>
         <div class="loader-text">Loading Drivers ...</div>
       </div>
-
     </div>
   </div>
 </template>
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       result: undefined,
+      searchQuery: undefined,
     };
   },
   methods: {
@@ -40,8 +42,20 @@ export default {
       });
     },
     navigateToDriverDetails(id) {
-      this.$router.push({ name: 'driver-details', params: { driverId: id }});
-    }
+      this.$router.push({ name: "driver-details", params: { driverId: id } });
+    },
+    resultQuery() {
+      if (this.searchQuery) {
+        return this.result.filter((driver) => {
+          return this.searchQuery
+            .toLowerCase()
+            .split(" ")
+            .every((value) => driver.first_name.toLowerCase().includes(value));
+        });
+      } else {
+        return this.result;
+      }
+    },
   },
   computed: {},
   created() {},
@@ -56,7 +70,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -89,6 +102,13 @@ export default {
   }
 }
 
+.driver-search {
+  margin: 30px;
+  width: 320px;
+  height: 40px;
+  border-radius: 15px;
+}
+
 .drivers-list-container {
   margin-top: 80px;
   display: flex;
@@ -107,8 +127,8 @@ export default {
 
 .drivers-list-row:hover {
   cursor: pointer;
-  background-color:  #32b2db;
-  color: white
+  background-color: #32b2db;
+  color: white;
 }
 
 .drivers-list-row:first-child {
