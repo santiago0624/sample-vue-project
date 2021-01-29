@@ -5,11 +5,16 @@
 
       <div v-if="result" id="driverListView">
         <div class="drivers-list-container" id="driverListConatiner">
-          <input class="form-control driver-search" type="search" v-model="searchQuery" placeholder="Search Driver" id="driverSearch"/>
-          <div v-for="driver in resultQuery()" :key="driver.id" class="drivers-list-row"
+          <div class="driver-search">
+            <input class="form-control driver-search-input" type="search" v-model="searchQuery"
+                   placeholder="Search Driver" id="driverSearch"/>
+          </div>
+          <div v-for="driver in resultQuery()" :key="driver.id" class="drivers-list-row" 
                @click="navigateToDriverDetails(driver.id)" id="driver.id">
             <i class="glyphicon glyphicon-user"></i>
-            <div class="driver-name" id="driverName">{{ driver.first_name }}</div>
+            <div class="driver-name" id="driverName">
+              {{ driver.first_name }}
+            </div>
             <app-avatar :driver="driver"></app-avatar>
           </div>
         </div>
@@ -25,7 +30,7 @@
 
 <script type="text/babel">
 import DriversService from "@/services/drivers";
-import Avatar from "@/components/avatar"
+import Avatar from "@/components/avatar";
 
 export default {
   name: "views-orders-index",
@@ -67,14 +72,13 @@ export default {
   beforeDestroy() {},
   mixins: [],
   components: {
-    'app-avatar': Avatar
+    "app-avatar": Avatar,
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -108,9 +112,14 @@ export default {
 }
 
 .driver-search {
-  margin: 30px;
+  padding: 20px 20px;
   width: 320px;
-  height: 40px;
+  border: 1px solid #32b2db;
+  border-radius: 10px 10px 0 0;
+}
+
+.driver-search-input {
+  height: 38px;
   border-radius: 15px;
 }
 
@@ -126,9 +135,9 @@ export default {
   display: flex;
   align-items: center;
   border: 1px solid #32b2db;
-  border-bottom: none;
   padding: 15px 20px;
   width: 320px;
+  border-top: none;
 }
 
 .drivers-list-row:hover {
@@ -139,6 +148,7 @@ export default {
 
 .drivers-list-row:first-child {
   border-radius: 10px 10px 0 0;
+  border-top: none;
 }
 
 .drivers-list-row:last-child {
