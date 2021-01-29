@@ -1,23 +1,23 @@
 <template>
   <div class="component">
     <div class="container--fluid">
-      <h1>Drivers</h1>
+      <h1 class="ml-5">Drivers</h1>
 
-      <div v-if="result">
-        <div class="drivers-list-container">
-          <input class="form-control driver-search" type="search" v-model="searchQuery" placeholder="Search Driver"/>
+      <div v-if="result" id="driverListView">
+        <div class="drivers-list-container" id="driverListConatiner">
+          <input class="form-control driver-search" type="search" v-model="searchQuery" placeholder="Search Driver" id="driverSearch"/>
           <div v-for="driver in resultQuery()" :key="driver.id" class="drivers-list-row"
-               @click="navigateToDriverDetails(driver.id)">
+               @click="navigateToDriverDetails(driver.id)" id="{{driver.id}}">
             <i class="glyphicon glyphicon-user"></i>
-            <div class="driver-name">{{ driver.first_name }}</div>
+            <div class="driver-name" id="driverName">{{ driver.first_name }}</div>
             <app-avatar :driver="driver"></app-avatar>
           </div>
         </div>
       </div>
 
-      <div v-if="!result" class="loader-container">
-        <div class="loader"></div>
-        <div class="loader-text">Loading Drivers ...</div>
+      <div v-if="!result" class="loader-container" id="loaderComponent">
+        <div class="loader" id="loaderIcon"></div>
+        <div class="loader-text" id="loaderText">Loading Drivers ...</div>
       </div>
     </div>
   </div>
@@ -74,6 +74,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 .loader-container {
   display: flex;
   flex-direction: column;

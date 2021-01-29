@@ -1,27 +1,21 @@
 <template>
   <div class="component">
     <div class="container--fluid">
-      <div class="driver-details-header">
-        <div
-          class="bi bi-arrow-left-circle navigate-back-icon"
-          @click="navigateBack()"
-        ></div>
+      <div class="driver-details-header" id="driverDetailsHeader">
+        <div class="bi bi-arrow-left-circle navigate-back-icon" @click="navigateBack()" id="navigateBackIcon"></div>
         <h1>Driver {{ this.$route.params.driverId }} Details</h1>
       </div>
 
       <div v-if="drivers">
-        <div class="driver-info">
-          <div
-            class="col-5 driver-info-row"
-            v-for="attribute in driverInfo"
-            :key="attribute.id"
-          >
+        <div class="driver-info" id="driverInfo">
+          <div class="col-5 driver-info-row" id="driverInfoRow" v-for="attribute in driverInfo" :key="attribute.id">
             <div class="col-3 driver-info-label">{{ attribute.label }}</div>
             <div class="col-9 driver-info-value">{{ attribute.value }}</div>
           </div>
         </div>
       </div>
-      <div v-if="!drivers" class="loader-container">
+      
+      <div v-if="!drivers" class="loader-container" id="loaderContainer">
         <div class="loader"></div>
         <div class="loader-text">Loading Driver Details ...</div>
       </div>
