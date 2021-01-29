@@ -7,7 +7,7 @@
         <div class="drivers-list-container" id="driverListConatiner">
           <input class="form-control driver-search" type="search" v-model="searchQuery" placeholder="Search Driver" id="driverSearch"/>
           <div v-for="driver in resultQuery()" :key="driver.id" class="drivers-list-row"
-               @click="navigateToDriverDetails(driver.id)" id="{{driver.id}}">
+               @click="navigateToDriverDetails(driver.id)" id="driver.id">
             <i class="glyphicon glyphicon-user"></i>
             <div class="driver-name" id="driverName">{{ driver.first_name }}</div>
             <app-avatar :driver="driver"></app-avatar>
